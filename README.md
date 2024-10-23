@@ -1,0 +1,2 @@
+# alura_formacao_aws_certified_cloud_practitioner
+Preparação para AWS Certified Cloud Practitioner.
