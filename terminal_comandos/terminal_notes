@@ -1,0 +1,262 @@
+# Notes
+
+-- Identifica o diretório atual
+$ pwd 
+
+-- Navegar entre diretórios
+$ cd <nome do diretório>
+
+-- Retorna um diretório
+$ cd ..
+
+-- Lista o que está no diretório
+$ ls
+
+-- Acessar explicação de comando
+$ ls --help
+
+-- Lista todo o conteúdo incluindo arquivos ocultos
+$ ls -a
+
+-- Emite o autor dos arquivos criados
+$ ls -la
+
+-- Limpa a tela
+$ clear
+
+-- Criar diretório
+$ mkdir estudos
+
+-- Criar arquivo
+$ touch comandos.txt
+
+-- Visualizar o conteúdo do arquivo
+$ cat comandos.txt
+
+-- Adicionar informação no arquivo
+$ echo ls lista arquivos > comandos.txt
+
+-- Adicionar mais informação no arquivo
+$ echo clear - limpa a tela >> comandos.txt
+
+-- Adiciona informação em novo arquivo
+$ echo --help dá uma ajuda > dicas.txt
+
+-- Excluir arquivo
+$ rm exercicios.txt
+
+-- Renomear arquivo
+$ mv dicas.txt anotacoes.txt
+
+-- Criar arquivo com nomes separados
+$ mkdir 'estudos de terminal'
+
+-- Remover diretório
+$ rmdir estudos_terminal
+
+-- Copiar arquivo para um diretório
+$ cp anotacoes.txt 'estudos de terminal'
+
+-- Caracter coringa
+*
+
+-- Copiar todos os arquivos para um diretório 
+$ cp *.txt 'estudos de terminal'
+
+-- Copiar qualquer nome e qualquer extensão
+$ cp *.*
+
+-- Mover arquivos para diretório
+$ mv *.txt backup
+
+---------------------------------
+-- Abrir editor 
+$ vi
+
+-- Começar a escrever
+--- clicar i para começar a digitar
+--- enter para pular de linha
+
+--Salvar e nomear arquivo
+:w arquivo.txt
+
+-- Salvar arquivo que possui nome
+esc + :w
+
+-- Sair do editor
+:q
+
+-- Abrir arquivo existente
+$ vi arquivo.txt
+
+-- Para digitar ao final de uma linha
+---Direcionar o cursos para a linha e digitar
+A
+
+-- Inserir uma linha abaixo
+o
+
+-- Sair sem salvar
+:q!
+
+-- Copiar
+--- Posicionar o cursor na linha a ser copiada
+esc + yy
+--- Adicionar linha
+o
+
+-- Colar
+esc + p
+
+-- Recortar
+dd
+
+-- Localizar texto
+:/Windows
+
+-- Substituir texto
+:s/Windows/Unix
+
+-- Salvar e sair
+:x
+
+---------------------------------
+-- Estatísticas do arquivo
+$ wc arquivo.txt
+
+-> 10 24 181 arquivo.txt
+- 10 linhas
+- 24 palavras
+- 181 caracteres
+
+-- Mostra arquivo eliminando duplicidade
+$ uniq arquivo.txt
+
+-- Usa flag para mostrar as duplicidades
+$ uniq -D arquivo.txt
+
+-- Conhecer as flags
+$ uniq --help
+
+-- Prefixa linhas com o número de ocorrências
+$ uniq -c arquivo.txt
+
+-- Ordenar os dados
+$ sort arquivo.txt
+
+---------------outro editor
+$ nano
+
+M == Alt
+^ == Ctrl
+
+-- Ver os 200 primeiros caracteres
+$ head -c 200 texto_java.txt
+
+-- Ver as 2 últimas linhas do arquivo
+$ tail -n 2 uniq arquivo.txt
+
+-- Ver os 100 últimos caracteres do arquivo
+$ tail -c 100 uniq arquivo.txt
+
+--------------- arquivos compactados
+--- cria arquivo zip e compacta tudo o que há recursivamente (-r)
+$ zip -r backup.zip backup
+
+--- verifica o que há no arquivo
+$ less backup.zip
+
+--- para sair do vim
+:q
+
+--- descompactar
+$ mkdir teste --- cria pasta
+$ mv backup.zip teste --- move arquivo para nova pasta
+$ cd teste
+$ ls
+$ unzip backup.zip
+
+--- descompactar (outra forma)
+$ rm -r backup/ --- apaga a pasta
+$ unzip -q backup.zip --- não mostra os logs
+
+--- cria arquivo tar (Linux)
+--- czf: create zip file
+$ tar -czf backup.tar.gz backup
+
+--- descompactar tar
+$ mkdir sacola
+$ mv backup.tar.gz sacola/
+$ ls
+$ cd sacola/
+$ ls
+$ tar -xzf backup.tar.gz --- xzf: extract zip file
+$ ls
+
+--------------- script: automatizar tarefas
+$ mkdir pasta_logs
+$ cd pasta_logs
+$ echo 1 > log1.txt --- cria arquivo na nova pasta
+$ cd ..
+
+$ mkdir backup
+
+$ mkdir script
+$ pwd -- pega o caminho da pasta que estou trabalhando
+--- /home/user01/Documentos/Alura/alura_formacao_aws_certified_cloud_practitioner/terminal_comandos
+$ cd script
+$ nano
+
+/home/user01/Documentos/Alura/alura_formacao_aws_certified_cloud_practitioner/terminal_comandos/pasta_logs/*.txt /home/user01/Documentos/Alura/alura_formacao_aws_certified_cloud_practitioner/terminal_comandos/backup
+
+^o --- salvar
+bkp.sh --- nome do arquivo
+^x --- sair do nano
+
+$ cd script
+$ ls
+$ chmod +x bkp.sh --- dar permissão: +x = execução
+$ ls
+
+$ cd..
+$ cd backup
+$ ls --- não tem nada
+$ cd ..
+$ cd script
+$ ./bkp.sh
+$ cd ..
+
+$ cd backup
+$ ls --- todos os arquivos .txt foram copiados para esta página
+
+
+--------------- variáveis de ambiente
+$ cd ..
+$ cd backup
+$ ls -- pasta vazia
+$ cd ..
+$ cd pasta_logs
+$ ls -- 3 arquivos .txt
+$ cd ..
+$ pwd --- mostra o caminho
+/home/user01/Documentos/Alura/alura_formacao_aws_certified_cloud_practitioner/terminal_comandos
+$ echo $PATH --- lista as variáveis de ambiente
+$ export PATH=$PATH:/home/user01/Documentos/Alura/alura_formacao_aws_certified_cloud_practitioner/terminal_comandos
+$ echo $PATH --- mostra que o novo PATH foi adicionado
+
+--------------- instalação de pacotes
+$ sudo apt install mysql-server --- instalar
+$ systemctl status mysql --- verifica se instalou
+$ sudo mysql --- acessa o mysql
+mysql> show database;
+
+
+
+
+
+
+
+
+
+
+
